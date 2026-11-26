@@ -1,0 +1,102 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #e8eddc;
+  background: #17221b;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+p, h1, h2 { margin: 0; }
+header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .9rem clamp(1rem, 3vw, 2.5rem);
+  background: #202e24;
+}
+h1 { font-size: 1.2rem; }
+header p, aside p { color: #c3ccbb; font-size: .9rem; }
+.marca {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border-radius: .7rem;
+  background: #d5bc83;
+  color: #263522;
+  font-weight: 750;
+}
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 260px);
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 3vw, 2.5rem);
+}
+.visor {
+  min-height: 27rem;
+  height: calc(100dvh - 6.3rem);
+  position: relative;
+  overflow: hidden;
+  border-radius: .9rem;
+  background: #c9dce0;
+}
+#cena, #cena canvas { width: 100%; height: 100%; display: block; touch-action: none; }
+#estado, .controles, .ajuda { position: absolute; margin: 0; }
+#estado, .ajuda {
+  bottom: .8rem;
+  left: .8rem;
+  right: .8rem;
+  padding: .65rem .85rem;
+  width: fit-content;
+  border-radius: .5rem;
+  background: #17221b;
+  font-size: .8rem;
+}
+#estado { z-index: 1; }
+.controles { top: .8rem; right: .8rem; display: flex; gap: .35rem; }
+button {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  border: 1px solid #5a6a55;
+  border-radius: .55rem;
+  background: #26372b;
+  color: inherit;
+  padding: .55rem .75rem;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover:not(:disabled), button[aria-pressed="true"] { background: #40533b; }
+button:focus-visible { outline: 2px solid #e3c68e; outline-offset: 2px; }
+button:disabled { opacity: .6; cursor: default; }
+aside {
+  align-self: start;
+  padding: 1rem;
+  border: 1px solid #40513e;
+  border-radius: .9rem;
+}
+h2 { font-size: 1rem; margin-bottom: .45rem; }
+#locais { display: grid; gap: .45rem; margin-top: 1rem; }
+#locais button { text-align: left; }
+#descricao:not(:empty) { margin-top: .85rem; }
+
+@media (max-width: 720px) {
+  main { grid-template-columns: 1fr; }
+  .visor { min-height: 22rem; height: 60dvh; }
+  #locais { grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); }
+}
+
+#tempo {
+  position: absolute;
+  top: .8rem;
+  left: .8rem;
+  max-width: calc(100% - 1.6rem);
+  padding: .65rem .85rem;
+  border-radius: .5rem;
+  background: #17221b;
+  font-size: .8rem;
+}
+#tempo:empty { display: none; }
+@media (max-width: 520px) {
+  #tempo { top: 4.1rem; }
+}

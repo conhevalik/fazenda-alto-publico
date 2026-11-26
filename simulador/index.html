@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="geo.region" content="BR-SP">
+  <meta name="geo.placename" content="Botucatu">
+  <meta name="geo.position" content="-22.885833;-48.445000">
+  <title>Fazenda Alto · Explorador 3D</title>
+  <link rel="stylesheet" href="./estilo.css">
+  <script type="importmap">
+    {"imports":{"three":"./vendor/build/three.module.min.js"}}
+  </script>
+  <script type="module" src="./camera.js"></script>
+</head>
+<body>
+  <header>
+    <span class="marca" aria-hidden="true">FA</span>
+    <div><h1>Fazenda Alto</h1><p>Explorador 3D · Botucatu, SP</p></div>
+  </header>
+  <main>
+    <section class="visor" aria-label="Vista tridimensional da fazenda">
+      <div id="cena"></div>
+      <p id="tempo" aria-label="Clima da fazenda"></p>
+      <p id="estado" role="status">Carregando a fazenda…</p>
+      <div class="controles" aria-label="Controles da câmera">
+        <button id="aproximar" aria-label="Aproximar" disabled>+</button>
+        <button id="afastar" aria-label="Afastar" disabled>−</button>
+        <button id="geral" disabled>Vista geral</button>
+      </div>
+      <p class="ajuda">Arraste para girar · Use a roda para aproximar · Botão direito para deslocar</p>
+    </section>
+    <aside aria-label="Locais da propriedade">
+      <h2>Explorar a fazenda</h2>
+      <p>Escolha um local para aproximar a câmera.</p>
+      <div id="locais"></div>
+      <p id="descricao" aria-live="polite"></p>
+    </aside>
+  </main>
+</body>
+</html>
