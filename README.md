@@ -18,21 +18,11 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory simulador
 
 Abra [o simulador local](http://127.0.0.1:8000/) em um navegador com WebGL 2. O código do Three.js incluído em `simulador/vendor` traz sua própria [licença MIT](simulador/vendor/LICENSE).
 
-## Metas de desenvolvimento em Python
+## Próxima meta
 
-A maquete atual usa JavaScript e Three.js para renderizar a fazenda. O próximo passo é construir em Python o núcleo que simula a propriedade e fornece os dados para a cena 3D e, mais adiante, para o aplicativo Android.
+**Prototipar o controlador de irrigação de um talhão no Wokwi.** Usar um ESP32 com MicroPython, um potenciômetro para representar a leitura de umidade do solo e um LED para indicar o estado da bomba virtual.
 
-| Ordem | Entrega | Critério de aceite |
-| --- | --- | --- |
-| 1 | **Núcleo da fazenda em Python** | Carregar os três talhões e os dados fictícios dos laudos, avançar o relógio da fazenda e reproduzir o mesmo estado final com as mesmas entradas. |
-| 2 | **Modelo de clima, água e solo** | Simular episódios secos e chuvosos e registrar como a umidade varia por talhão. |
-| 3 | **Backend e integração com a cena 3D** | Expor o estado da fazenda por uma API Python. A cena 3D deve refletir o clima e as operações informadas pelo backend. |
-| 4 | **Controlador de automação rural** | Simular irrigação por talhão e testar operação com o app fechado, falha de sensor e parada de emergência. |
-| 5 | **Aplicativo Android de supervisão** | Consultar o estado da fazenda, o histórico e os alertas pela mesma API do simulador. |
-| 6 | **Módulo de previsão e apoio à decisão** | Consultar a previsão para Botucatu e apresentar sugestões de plantio com justificativas baseadas no solo, na época e na água disponível. A escolha da IA local será validada nessa etapa. |
-| 7 | **Programa de avaliação de resultados** | Comparar o cenário inicial e os cenários com automação, com indicadores de água e insumos por hectare, custo e produtividade por talhão. |
-
-A primeira entrega será executável localmente por linha de comando e terá testes automatizados para a evolução do relógio e a consistência do estado dos três talhões.
+A meta estará concluída quando for possível variar a leitura no simulador e demonstrar que o controlador liga a bomba virtual com leitura de solo seco e a desliga quando a leitura retorna à faixa definida. Os limites serão fictícios, definidos para o teste do circuito.
 
 ## Relatórios simulados de solo
 
