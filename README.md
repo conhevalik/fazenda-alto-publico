@@ -33,3 +33,4 @@ Os três relatórios são exercícios com dados fictícios. A avaliação visual
 | [Ficha de campo](relatorios/ficha-solo-fazenda-alto.png) | Notas VESS por camada e por ponto nos três talhões. |
 | [Laudo laboratorial](relatorios/laudo-solo-simulado.png) | Fertilidade simulada na camada de 0 a 20 cm, com pH, nutrientes e saturação por bases. |
 | [Plano de manejo](relatorios/relatorio-manejo-solo.png) | Diagnóstico, ações e verificação por talhão. A prioridade simulada é C, depois B, depois A. |
+| [Plano da safra simulada 2026/27](relatorios/relatorio-safra-simulada-2026-2027.png) | Milho no talhão A, investigação da compactação no B e laudo de subsolo e recuperação no C. |
