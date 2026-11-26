@@ -18,15 +18,21 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory simulador
 
 Abra [o simulador local](http://127.0.0.1:8000/) em um navegador com WebGL 2. O código do Three.js incluído em `simulador/vendor` traz sua própria [licença MIT](simulador/vendor/LICENSE).
 
-## Roteiro da transformação
+## Metas de desenvolvimento em Python
 
-- [x] **Construir a maquete 3D.** Exibir a propriedade inteira, permitir navegação por câmera e representar mudanças de tempo e de iluminação na cena.
-- [x] **Criar a referência de solo.** Registrar a avaliação visual de estrutura, o laudo químico fictício e as ações de manejo por talhão.
-- [ ] **Aplicar agricultura de precisão por talhão.** Modelar a resposta do solo à chuva, à cobertura e ao manejo, e usar essas diferenças para apoiar decisões localizadas.
-- [ ] **Adicionar supervisão pelo Android.** Usar o estado da mesma fazenda para mostrar talhões, histórico e alertas no celular.
-- [ ] **Validar a automação rural.** Testar o controle de operações como a irrigação, incluindo autonomia com o aplicativo fechado, resposta a falhas e parada de emergência.
-- [ ] **Comparar resultados.** Medir nos cenários simulados o uso de recursos, os custos e a produtividade em relação à situação inicial.
-- [ ] **Estudar previsão regional e IA local.** Usar a localização para consultar a previsão e considerar solo, safra e disponibilidade de água ao sugerir opções de plantio. Decisões de campo exigem validação agronômica.
+A maquete atual usa JavaScript e Three.js para renderizar a fazenda. O próximo passo é construir em Python o núcleo que simula a propriedade e fornece os dados para a cena 3D e, mais adiante, para o aplicativo Android.
+
+| Ordem | Entrega | Critério de aceite |
+| --- | --- | --- |
+| 1 | **Núcleo da fazenda em Python** | Carregar os três talhões e os dados fictícios dos laudos, avançar o relógio da fazenda e reproduzir o mesmo estado final com as mesmas entradas. |
+| 2 | **Modelo de clima, água e solo** | Simular episódios secos e chuvosos e registrar como a umidade varia por talhão. |
+| 3 | **Backend e integração com a cena 3D** | Expor o estado da fazenda por uma API Python. A cena 3D deve refletir o clima e as operações informadas pelo backend. |
+| 4 | **Controlador de automação rural** | Simular irrigação por talhão e testar operação com o app fechado, falha de sensor e parada de emergência. |
+| 5 | **Aplicativo Android de supervisão** | Consultar o estado da fazenda, o histórico e os alertas pela mesma API do simulador. |
+| 6 | **Módulo de previsão e apoio à decisão** | Consultar a previsão para Botucatu e apresentar sugestões de plantio com justificativas baseadas no solo, na época e na água disponível. A escolha da IA local será validada nessa etapa. |
+| 7 | **Programa de avaliação de resultados** | Comparar o cenário inicial e os cenários com automação, com indicadores de água e insumos por hectare, custo e produtividade por talhão. |
+
+A primeira entrega será executável localmente por linha de comando e terá testes automatizados para a evolução do relógio e a consistência do estado dos três talhões.
 
 ## Relatórios simulados de solo
 
