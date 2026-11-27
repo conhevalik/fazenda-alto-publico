@@ -30,7 +30,19 @@
       </div>
       <p class="ajuda">Arraste para girar · Use a roda para aproximar · Botão direito para deslocar</p>
     </section>
-    <aside aria-label="Locais da propriedade">
+    <aside aria-label="Irrigação e locais da propriedade">
+      <section id="irrigacao" aria-labelledby="irrigacao-titulo">
+        <h2 id="irrigacao-titulo">Irrigação simulada</h2>
+        <p role="status">Conectando ao controlador…</p>
+        <p id="atuadores"></p>
+        <label for="umidade_a">Umidade do talhão A <output></output><input id="umidade_a" type="range" name="umidade_a" min="0" max="100" value="50" disabled></label>
+        <label for="umidade_b">Umidade do talhão B <output></output><input id="umidade_b" type="range" name="umidade_b" min="0" max="100" value="50" disabled></label>
+        <label for="nivel">Nível do reservatório <output></output><input id="nivel" type="range" name="nivel" min="0" max="100" value="78" disabled></label>
+        <div class="acoes-irrigacao">
+          <button data-acao="parar" disabled>Parar</button>
+          <button data-acao="rearmar" disabled>Rearmar</button>
+        </div>
+      </section>
       <h2>Explorar a fazenda</h2>
       <p>Escolha um local para aproximar a câmera.</p>
       <div id="locais"></div>

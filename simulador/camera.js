@@ -3,6 +3,8 @@ import { OrbitControls } from './vendor/examples/jsm/controls/OrbitControls.js';
 import { criarFazenda } from './fazenda.js';
 import { medirClima } from './clima.js';
 import { criarTempoVisual } from './tempo-visual.js';
+import { criarIrrigacaoVisual } from './irrigacao-visual.js';
+import { iniciarPainelIrrigacao } from './irrigacao-painel.js';
 
 const visor = document.querySelector('#cena');
 const estado = document.querySelector('#estado');
@@ -30,6 +32,8 @@ function iniciar() {
   controle.maxDistance = 1550;
   const zonas = criarFazenda(cena);
   const atualizarTempoVisual = criarTempoVisual(cena);
+  const atualizarIrrigacao = criarIrrigacaoVisual(cena);
+  const lerIrrigacao = iniciarPainelIrrigacao();
   const tempo = document.querySelector('#tempo');
 
   function enquadrar(x, z, direcao, distancia) {
@@ -103,6 +107,7 @@ function iniciar() {
     anterior = agora;
     const clima = medirClima(segundos / 10);
     atualizarTempoVisual(clima, segundos);
+    atualizarIrrigacao(lerIrrigacao(), segundos);
     ambiente.intensity = 0.38 + clima.luz * (1.82 - clima.nebulosidade * 0.72);
     sol.intensity = 2.1 * clima.luz * (1 - clima.nebulosidade * 0.83);
     const leitura = `Dia ${clima.dia} · ${clima.hora} · ${clima.condicao}`;

@@ -13,16 +13,18 @@ A maquete inclui três talhões, sede, galpão, estrada, reservatório e vegeta�
 Com Python 3 instalado, execute na raiz do repositório:
 
 ```sh
-python3 -m http.server 8000 --bind 127.0.0.1 --directory simulador
+python3 -m prototipos.irrigacao.servidor
 ```
 
 Abra [o simulador local](http://127.0.0.1:8000/) em um navegador com WebGL 2. O código do Three.js incluído em `simulador/vendor` traz sua própria [licença MIT](simulador/vendor/LICENSE).
 
-## Próxima meta
+## Protótipo de irrigação validado em simulação
 
-**Prototipar o controlador de irrigação de um talhão no Wokwi.** Usar um ESP32 com MicroPython, um potenciômetro para representar a leitura de umidade do solo e um LED para indicar o estado da bomba virtual.
+O [circuito no Wokwi](https://wokwi.com/projects/481787714825641985) usa ESP32 e MicroPython, com potenciômetros para umidade e nível, servos para as válvulas A e B, e um relé com LED para representar a bomba. O [tutorial em PDF](relatorios/tutorial-irrigacao-fazenda-alto.pdf) mostra a montagem por pino e os testes.
 
-A meta estará concluída quando for possível variar a leitura no simulador e demonstrar que o controlador liga a bomba virtual com leitura de solo seco e a desliga quando a leitura retorna à faixa definida. Os limites serão fictícios, definidos para o teste do circuito.
+Na maquete, selecione **Talhão A** e reduza a umidade para **25%** com o reservatório acima de **20%**. O controlador abre a válvula e liga a bomba. Os aspersores aplicam água na cena, a umidade simulada sobe e o nível do reservatório baixa. A irrigação termina ao chegar a **40%**. O talhão C segue de sequeiro.
+
+O servidor Python executa o [mesmo firmware](prototipos/irrigacao/main.py) com periféricos virtuais locais. A maquete e o Wokwi podem rodar separadamente. A validação cobriu a seleção dos dois talhões, o bloqueio por reservatório baixo, a parada travada e o rearme. Os limites e a resposta do solo são parâmetros de demonstração.
 
 ## Relatórios simulados de solo
 

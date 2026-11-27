@@ -100,3 +100,12 @@ h2 { font-size: 1rem; margin-bottom: .45rem; }
 @media (max-width: 520px) {
   #tempo { top: 4.1rem; }
 }
+
+#irrigacao { border-bottom: 1px solid #40513e; padding-bottom: 1rem; margin-bottom: 1rem; }
+#irrigacao [role="status"] { font-weight: 650; color: #dce8c8; }
+#atuadores { margin: .3rem 0 .8rem; }
+#irrigacao label { display: block; margin: .45rem 0; font-size: .85rem; }
+#irrigacao output { float: right; font-variant-numeric: tabular-nums; }
+#irrigacao input { display: block; width: 100%; margin: .25rem 0; accent-color: #b7cb88; }
+.acoes-irrigacao { display: flex; flex-wrap: wrap; gap: .45rem; }
+.acoes-irrigacao [data-acao="parar"] { background: #693632; }
