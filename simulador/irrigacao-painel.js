@@ -1,3 +1,5 @@
+import { criarDemonstracaoIrrigacao } from './irrigacao-demo.js';
+
 const endpoint = '/api/irrigacao';
 
 export function iniciarPainelIrrigacao() {
@@ -6,10 +8,17 @@ export function iniciarPainelIrrigacao() {
   const sensores = [...painel.querySelectorAll('input')];
   const botoes = [...painel.querySelectorAll('button')];
   const resumo = painel.querySelector('#atuadores');
+  const modoDemo = new URLSearchParams(location.search).has('demo');
+  const demo = modoDemo ? criarDemonstracaoIrrigacao() : null;
+  if (demo) painel.querySelector('#irrigacao-titulo').textContent = 'Irrigação · demonstração';
   let estado = null;
   let erroComando = '';
 
   async function comandar(dados) {
+    if (demo) {
+      demo.comandar(dados);
+      return;
+    }
     try {
       const resposta = await fetch(endpoint, {
         method: 'POST',
@@ -33,9 +42,13 @@ export function iniciarPainelIrrigacao() {
 
   async function consultar() {
     try {
-      const resposta = await fetch(endpoint, { signal: AbortSignal.timeout(2000) });
-      if (!resposta.ok) throw new Error('Controlador indisponível');
-      estado = await resposta.json();
+      if (demo) {
+        estado = demo.avancar(performance.now());
+      } else {
+        const resposta = await fetch(endpoint, { signal: AbortSignal.timeout(2000) });
+        if (!resposta.ok) throw new Error('Controlador indisponível');
+        estado = await resposta.json();
+      }
       const mensagem = {
         'EM ESPERA': 'Em espera',
         'PARADA TRAVADA': 'Parada travada',

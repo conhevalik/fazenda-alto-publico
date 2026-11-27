@@ -1,5 +1,9 @@
 # Fazenda Alto | Agricultura 4.0 na prática
 
+[![Testar a fazenda 3D](https://img.shields.io/badge/Testar_a_fazenda-3D-2d6548?style=for-the-badge)](https://conhevalik.github.io/fazenda-alto-publico/)
+
+A demonstração abre no navegador sem instalação. Selecione **Talhão A** e baixe a umidade para **25%** para observar a irrigação. A versão online usa um controlador JavaScript para reproduzir o cenário. Para executar o firmware MicroPython com periféricos virtuais, use a versão Python descrita abaixo.
+
 O Fazenda Alto é um projeto de portfólio que demonstra como uma fazenda simples pode se tornar uma referência em **Agricultura 4.0, agricultura de precisão e automação rural**. O objetivo é reduzir custos, usar água e insumos com mais eficiência e aumentar a produtividade do produtor rural.
 
 A transformação parte de uma propriedade fictícia na região de Botucatu, SP. Primeiro, estabelecemos uma referência com a avaliação do solo por talhão. Depois, o projeto prevê combinar dados de solo e clima para orientar decisões localizadas e validar automações antes de levá-las ao campo. O simulador 3D é o ambiente de desenvolvimento e teste dessas soluções.
