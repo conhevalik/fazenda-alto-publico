@@ -30,6 +30,12 @@ Na maquete, selecione **Talhão A** e reduza a umidade para **25%** com o reserv
 
 O servidor Python executa o [mesmo firmware](prototipos/irrigacao/main.py) com periféricos virtuais locais. A maquete e o Wokwi podem rodar separadamente. A validação cobriu a seleção dos dois talhões, o bloqueio por reservatório baixo, a parada travada e o rearme. Os limites e a resposta do solo são parâmetros de demonstração.
 
+## Próximo passo · Monitoramento de máquinas em Python
+
+**Em desenvolvimento.** Estamos construindo um sistema Python para acompanhar as máquinas usadas na produção, da semeadura ao transporte dos grãos. A primeira versão registra ordens de trabalho, aceites, telemetria e conclusão de operações de equipamentos simulados, como plantadeira, colhedora e carreta graneleira.
+
+O objetivo desta etapa é permitir que o produtor acompanhe o andamento das operações por talhão, identifique esperas e reúna dados de área trabalhada, tempo e carga transportada. A comunicação com máquinas reais será avaliada após a validação do fluxo simulado.
+
 ## Relatórios simulados de solo
 
 Os três relatórios são exercícios com dados fictícios. A avaliação visual usa a escala VESS. O laudo químico segue as unidades de referência do IAC.
